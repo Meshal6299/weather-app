@@ -7,6 +7,68 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <script src="script.js" defer></script>
+  <main class="app">
+    <header class="app__header">
+      <div class="brand">
+        <div class="brand__dot"></div>
+        <div class="brand__text">
+          <p class="eyebrow">Simple Weather</p>
+          <h1>Check the sky</h1>
+        </div>
+      </div>
+      <div class="controls">
+        <form id="search-form" class="search">
+          <input id="search-input" type="text" name="location" placeholder="Search city or ZIP" aria-label="Search city or ZIP" required>
+          <button type="submit">Search</button>
+        </form>
+        <button id="unit-toggle" class="unit-toggle" aria-label="Toggle Fahrenheit / Celsius">°F</button>
+      </div>
+    </header>
+
+    <section id="status" class="status" aria-live="polite"></section>
+
+    <section id="weather" class="weather" hidden>
+      <div class="weather__top">
+        <div>
+          <p class="eyebrow" id="location"></p>
+          <h2 id="condition"></h2>
+          <p class="muted" id="updated"></p>
+        </div>
+        <div class="temp">
+          <span id="temp-value">--</span>
+          <span class="temp__unit" id="temp-unit">°F</span>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <p class="muted">Feels like</p>
+          <p class="value" id="feels-like">--</p>
+        </article>
+        <article class="card">
+          <p class="muted">Humidity</p>
+          <p class="value" id="humidity">--</p>
+        </article>
+        <article class="card">
+          <p class="muted">Wind</p>
+          <p class="value" id="wind">--</p>
+        </article>
+        <article class="card">
+          <p class="muted">Pressure</p>
+          <p class="value" id="pressure">--</p>
+        </article>
+        <article class="card">
+          <p class="muted">Visibility</p>
+          <p class="value" id="visibility">--</p>
+        </article>
+        <article class="card">
+          <p class="muted">UV index</p>
+          <p class="value" id="uv">--</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

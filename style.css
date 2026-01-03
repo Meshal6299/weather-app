@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+	--bg: #0b1224;
+	--panel: rgba(255, 255, 255, 0.06);
+	--stroke: rgba(255, 255, 255, 0.12);
+	--text: #e8edf7;
+	--muted: #9eabc7;
+	--accent: #7dd3fc;
+	--accent-strong: #38bdf8;
+	--error: #f87171;
+	--success: #34d399;
+	--shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+	color: var(--text);
+	background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.12), transparent 30%),
+		radial-gradient(circle at 80% 10%, rgba(59, 130, 246, 0.12), transparent 28%),
+		linear-gradient(160deg, #0f172a 0%, #0b1224 50%, #0a0f1f 100%);
+	padding: 32px;
+}
+
+.app {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.app__header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.brand__dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+	box-shadow: 0 0 20px rgba(125, 211, 252, 0.8);
+}
+
+.brand__text h1 {
+	margin: 0;
+	font-size: 32px;
+	letter-spacing: -0.5px;
+}
+
+.eyebrow {
+	margin: 0 0 4px;
+	color: var(--muted);
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.search {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: var(--panel);
+	border: 1px solid var(--stroke);
+	border-radius: 14px;
+	padding: 6px 6px 6px 12px;
+	box-shadow: var(--shadow);
+}
+
+.search input {
+	border: none;
+	background: transparent;
+	color: var(--text);
+	min-width: 220px;
+	font-size: 15px;
+	outline: none;
+}
+
+.search button {
+	border: none;
+	padding: 10px 14px;
+	border-radius: 12px;
+	background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+	color: #0b1224;
+	font-weight: 700;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+	box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+.search button:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 12px 28px rgba(56, 189, 248, 0.45);
+}
+
+.unit-toggle {
+	border: 1px solid var(--stroke);
+	background: var(--panel);
+	color: var(--text);
+	padding: 10px 12px;
+	border-radius: 12px;
+	cursor: pointer;
+	font-weight: 700;
+	box-shadow: var(--shadow);
+	transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.unit-toggle:hover {
+	background: rgba(255, 255, 255, 0.08);
+	transform: translateY(-1px);
+}
+
+.status {
+	padding: 12px 14px;
+	border-radius: 12px;
+	background: var(--panel);
+	border: 1px solid var(--stroke);
+	color: var(--text);
+	min-height: 22px;
+	box-shadow: var(--shadow);
+}
+
+.status[data-tone="error"] {
+	border-color: rgba(248, 113, 113, 0.4);
+	color: var(--error);
+}
+
+.status[data-tone="success"] {
+	border-color: rgba(52, 211, 153, 0.4);
+	color: var(--success);
+}
+
+.weather {
+	background: var(--panel);
+	border: 1px solid var(--stroke);
+	border-radius: 20px;
+	padding: 20px;
+	box-shadow: var(--shadow);
+}
+
+.weather__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+
+.weather h2 {
+	margin: 6px 0;
+	font-size: 26px;
+}
+
+.muted {
+	color: var(--muted);
+	margin: 0;
+}
+
+.temp {
+	display: flex;
+	align-items: baseline;
+	gap: 6px;
+	font-size: 64px;
+	font-weight: 700;
+}
+
+.temp__unit {
+	font-size: 20px;
+	color: var(--muted);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 12px;
+}
+
+.card {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid var(--stroke);
+	border-radius: 14px;
+	padding: 14px;
+}
+
+.value {
+	margin: 6px 0 0;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+@media (max-width: 640px) {
+	body {
+		padding: 20px;
+	}
+
+	.search {
+		width: 100%;
+	}
+
+	.search input {
+		min-width: 0;
+		width: 100%;
+	}
+
+	.controls {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.weather__top {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.temp {
+		font-size: 54px;
+	}
+}
